@@ -42,7 +42,7 @@ Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-Player.prototype.handleInput(keyPressed){
+Player.prototype.handleInput = function(keyPressed){
   if(keyPressed == 'up' && y < 500){
     this.y += 50;
   }
@@ -57,7 +57,7 @@ Player.prototype.handleInput(keyPressed){
   }
 };
 
-Player.prototype.restart(){
+Player.prototype.restart = function(){
   this.x = 303;
   this.y = 50;
   this.speed = 50;
