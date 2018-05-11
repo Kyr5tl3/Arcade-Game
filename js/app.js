@@ -43,10 +43,15 @@ Player.prototype.render = function() {
 };
 
 Player.prototype.handleInput(e){
+  this.keyPressed = e;
+};
 
-}
+Player.prototype.restart(){
+  this.x = 303;
+  this.y = 50;
+  this.speed = 50;
 
-
+};
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
