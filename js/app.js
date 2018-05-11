@@ -42,12 +42,28 @@ Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
+Player.prototype.handleInput(e){
+
+}
+
+
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 var allEnemies = [];
 
-var player = new Player(303, 101, 50);
+(function createEnemies(){
+  allEnemies.push(new Enemy(20, 100, 2));
+  allEnemies.push(new Enemy(-40, 400, 3));
+  allEnemies.push(new Enemy(160, 300, 5));
+  allEnemies.push(new Enemy(-110, 100, 1));
+  allEnemies.push(new Enemy(-40, 200, 4));
+  allEnemies.push(new Enemy(20, 300, 1));
+  allEnemies.push(new Enemy(360, 200, 3));
+  allEnemies.push(new Enemy(-150, 400, 6));
+}());
+
+var player = new Player(303, 50, 50);
 
 
 // This listens for key presses and sends the keys to your
