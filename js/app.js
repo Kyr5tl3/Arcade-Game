@@ -34,6 +34,9 @@ var Player = function (x, y, speed){
   this.sprite = 'images/char-cat-girl.png'
 };
 
+Player.prototype.update = function(dt) {
+  this.x += speed*dt
+}
 
 
 // Now instantiate your objects.
