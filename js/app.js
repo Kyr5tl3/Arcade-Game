@@ -62,6 +62,7 @@ Player.prototype.handleInput = function(keyPressed){
   }
 };
 
+//restart - player to return to Point of Origin
 Player.prototype.restart = function(){
   this.x = 200;
   this.y = 400;
