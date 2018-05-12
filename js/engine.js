@@ -166,7 +166,8 @@ var Engine = (function(global) {
       for(i=1; i<=5; i++){
       $('ul.lives').append('<li><img class="heart" src="images/Heart.png"></li>')
     };
-
+      //display score
+      $('div.score').append('<img class="star" src="images/Star.png"><h3 class="points">0</h3>')
       //Reset Scorecard Variables
       points = 0;
       gemBlueTotal = 0;

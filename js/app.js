@@ -1,5 +1,4 @@
 //Scorecard Variables
-var lives = 3;
 var points = 0;
 var gemBlueTotal = 0;
 var gemGreenTotal = 0;
@@ -46,6 +45,8 @@ var Player = function (x , y){
 Player.prototype.update = function(dt) {
   var thePlayer = this;
   if(this.y == 0){
+    points += 100;
+    this.points();
     this.restart();
   };
 
@@ -81,6 +82,11 @@ Player.prototype.handleInput = function(keyPressed){
   }
 };
 
+//adding of points
+
+Player.prototype.points = function(){
+  $('h3.points').replaceWith('<h3 class="points">' + points + '</h3>')
+}
 //restart - player to return to Point of Origin
 Player.prototype.restart = function(){
   this.x = 200;
@@ -98,13 +104,13 @@ var allEnemies = [];
 
 (function createEnemies(){
   allEnemies.push(new Enemy(100, 100));
-  allEnemies.push(new Enemy(-40, 300));
-  allEnemies.push(new Enemy(160, 300));
-  allEnemies.push(new Enemy(-110, 100));
-  allEnemies.push(new Enemy(-40, 200));
-  allEnemies.push(new Enemy(20, 300));
-  allEnemies.push(new Enemy(360, 200));
-  allEnemies.push(new Enemy(-150, 100));
+  // allEnemies.push(new Enemy(-40, 300));
+  // allEnemies.push(new Enemy(160, 300));
+  // allEnemies.push(new Enemy(-110, 100));
+  // allEnemies.push(new Enemy(-40, 200));
+  // allEnemies.push(new Enemy(20, 300));
+  // allEnemies.push(new Enemy(360, 200));
+  // allEnemies.push(new Enemy(-150, 100));
 }());
 
 var player = new Player(200,400);
