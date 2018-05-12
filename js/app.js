@@ -37,9 +37,17 @@ var Player = function (x , y){
 };
 
 Player.prototype.update = function(dt) {
+  var thePlayer = this;
   if(this.y == 0){
     this.restart();
-  }
+  };
+
+  allEnemies.forEach(function(enemy){
+    var xPosition = Math.abs(player.x - enemy.x);
+    var yPosition = Math.abs(player.y - enemy.y);
+    if(xPosition<=50 && yPosition<=25){
+        thePlayer.restart();
+    }});
 };
 
 Player.prototype.render = function() {
@@ -51,10 +59,10 @@ Player.prototype.handleInput = function(keyPressed){
   if(keyPressed == 'up' && 100 > this.y <= 400){
     this.y -= 50;
   }
-  if(keyPressed == 'down' && 400 < this.y > 100){
+  if(keyPressed == 'down' && this.y < 400){
     this.y += 50;
   }
-  if(keyPressed == 'left' && this.x > -50){
+  if(keyPressed == 'left' && this.x >= 50){
     this.x -= 50;
   }
   if(keyPressed == 'right' && this.x < 400){
