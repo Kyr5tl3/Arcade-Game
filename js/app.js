@@ -35,24 +35,27 @@ var Player = function (x , y){
 };
 
 Player.prototype.update = function(dt) {
-
-}
+  if(this.y == 0){
+    this.reset();
+  }
+};
 
 Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
 Player.prototype.handleInput = function(keyPressed){
-  if(keyPressed == 'up' && y < 500){
-    this.y += 50;
-  }
-  if(keyPressed == 'down' && y > 100){
+
+  if(keyPressed == 'up' && 100 > this.y <= 400){
     this.y -= 50;
   }
-  if(keyPressed == 'left' && x > 0){
+  if(keyPressed == 'down' && 400 < this.y > 100){
+    this.y += 50;
+  }
+  if(keyPressed == 'left' && this.x > 0){
     this.x -= 50;
   }
-  if(keyPressed == 'right' && x < 400){
+  if(keyPressed == 'right' && this.x < 400){
     this.x += 50;
   }
 };
