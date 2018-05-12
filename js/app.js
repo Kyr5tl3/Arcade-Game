@@ -38,7 +38,7 @@ var Player = function (x , y){
 
 Player.prototype.update = function(dt) {
   if(this.y == 0){
-    this.reset();
+    this.restart();
   }
 };
 
@@ -60,6 +60,11 @@ Player.prototype.handleInput = function(keyPressed){
   if(keyPressed == 'right' && this.x < 400){
     this.x += 50;
   }
+};
+
+Player.prototype.restart = function(){
+  this.x = 200;
+  this.y = 400;
 };
 
 // Now instantiate your objects.
