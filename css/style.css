@@ -7,30 +7,41 @@ h1{font-size: 2em;}
 h2{font-size: 1.5em;}
 p{font-size: 1em; font-style: italic;}
 
-.introduction{
-  text-align: center;
-  padding: 0 20px;
-}
-
 .container{
   padding: 20px;
-}
-
-.playingField{
-  float: right;
-}
-
-.scorecard{
-  width: 20%;
-  padding: 10px;
-  float: left;
+  display: flex;
+  flex-wrap: nowrap;
   border: 5px #C32148;
   border-radius: 10px;
   background: #C32148; /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(top, #DE3163		 , #DE5D83, #FFB7C5, #FFD1DC); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(bottom, #DE3163		, #DE5D83, #FFB7C5, #FFD1DC); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(bottom, #DE3163	, #DE5D83, #FFB7C5, #FFD1DC); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(to top, #DE3163	 , #DE5D83, #FFB7C5, #FFD1DC); /* Standard syntax (must be last) */
+  background: -webkit-linear-gradient(top, #DE3163, #DE5D83, #FFB7C5, #FFD1DC); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom, #DE3163, #DE5D83, #FFB7C5, #FFD1DC); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom, #DE3163, #DE5D83, #FFB7C5, #FFD1DC); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to top, #DE3163	, #DE5D83, #FFB7C5, #FFD1DC); /* Standard syntax (must be last) */
+}
+
+.leftcontainer{
+  padding: 20px;
+  width: 30%;
+  display: inline-block;
+}
+
+.introduction{
+  width: 100%;
+  padding: 0 20px;
+}
+
+.playingField{
+  text-align: center;
+  width: 65%;
+  display: block;
+  padding: 20px;
+}
+
+.scorecard{
+  display: inline-block;
+  width: 80%;
+  padding: 10px;
 }
 
 .lives{
@@ -70,8 +81,4 @@ p{font-size: 1em; font-style: italic;}
 }
 .gemOrange{
   width: 40px;
-}
-
-.playingField{
-  float: right;
 }
