@@ -1,3 +1,39 @@
 body {
     text-align: center;
 }
+
+.container{
+  display: flex;
+}
+
+.scorecard{
+float: left;
+}
+
+.lives{
+  display: block;
+}
+
+.points{
+
+}
+
+.keys{
+
+}
+
+.stars{
+
+}
+
+.gemBlue{
+
+}
+
+.gemGreen{
+
+}
+
+.gemOrange{
+  
+}
