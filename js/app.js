@@ -1,10 +1,10 @@
 // Enemies our player must avoid
-var Enemy = function(x, y, speed) {
+var Enemy = function(x , y) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
     this.x = x;
     this.y = y;
-    this.speed = speed;
+    this.speed = Math.random()*101|0;
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
@@ -28,16 +28,14 @@ Enemy.prototype.render = function() {
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
-var Player = function (x, y, speed){
+var Player = function (x , y){
   this.x = x;
   this.y = y;
-  this.speed = speed;
-  this.sprite = 'images/char-cat-girl.png'
+  this.sprite = 'images/char-cat-girl.png';
 };
 
 Player.prototype.update = function(dt) {
-  var speed = Player.speed; 
-  this.x += speed*dt
+
 }
 
 Player.prototype.render = function() {
@@ -59,30 +57,23 @@ Player.prototype.handleInput = function(keyPressed){
   }
 };
 
-Player.prototype.restart = function(){
-  this.x = 303;
-  this.y = 50;
-  this.speed = 50;
-};
-
-
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 var allEnemies = [];
 
 (function createEnemies(){
-  allEnemies.push(new Enemy(20, 100, 2));
-  allEnemies.push(new Enemy(-40, 400, 3));
-  allEnemies.push(new Enemy(160, 300, 5));
-  allEnemies.push(new Enemy(-110, 100, 1));
-  allEnemies.push(new Enemy(-40, 200, 4));
-  allEnemies.push(new Enemy(20, 300, 1));
-  allEnemies.push(new Enemy(360, 200, 3));
-  allEnemies.push(new Enemy(-150, 400, 6));
+  allEnemies.push(new Enemy(100, 100));
+  allEnemies.push(new Enemy(-40, 400));
+  allEnemies.push(new Enemy(160, 300));
+  allEnemies.push(new Enemy(-110, 100));
+  allEnemies.push(new Enemy(-40, 200));
+  allEnemies.push(new Enemy(20, 300));
+  allEnemies.push(new Enemy(360, 200));
+  allEnemies.push(new Enemy(-150, 400));
 }());
 
-var player = new Player(303, 50, 50);
+var player = new Player(200,400);
 
 
 // This listens for key presses and sends the keys to your
