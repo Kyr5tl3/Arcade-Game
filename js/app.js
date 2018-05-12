@@ -54,6 +54,10 @@ Player.prototype.update = function(dt) {
     var yPosition = Math.abs(player.y - enemy.y);
     if(xPosition<=50 && yPosition<=25){
         thePlayer.restart();
+        if($('ul.lives li').length > 0){
+          $('ul.lives li:last-child').remove();
+        }
+        else{player.gameOver();}
     }});
 };
 
@@ -81,6 +85,10 @@ Player.prototype.handleInput = function(keyPressed){
 Player.prototype.restart = function(){
   this.x = 200;
   this.y = 400;
+};
+
+Player.prototype.gameOver = function(){
+  console.log('GAMEOVER');
 };
 
 // Now instantiate your objects.
