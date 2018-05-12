@@ -1,3 +1,10 @@
+//Scorecard Variables
+var lives = 3;
+var points = 0;
+var gemBlueTotal = 0;
+var gemGreenTotal = 0;
+var gemOrangeTotal = 0;
+
 // Enemies our player must avoid
 var Enemy = function(x , y) {
     // Variables applied to each of our instances go here,

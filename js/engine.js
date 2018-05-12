@@ -161,7 +161,12 @@ var Engine = (function(global) {
      * those sorts of things. It's only called once by the init() method.
      */
     function reset() {
-        // noop
+      //Reset Scorecard Variables
+      lives = 3;
+      points = 0;
+      gemBlueTotal = 0;
+      gemGreenTotal = 0;
+      gemOrangeTotal = 0;
     }
 
     /* Go ahead and load all of the images we know we're going to need to
@@ -174,6 +179,10 @@ var Engine = (function(global) {
         'images/grass-block.png',
         'images/enemy-bug.png',
         'images/char-cat-girl.png'
+        'images/Heart.png'
+        'images/Gem Blue.png'
+        'images/Gem Green.png'
+        'images/Gem Orange.png'
     ]);
     Resources.onReady(init);
 
