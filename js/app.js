@@ -4,7 +4,7 @@ var Enemy = function(x , y) {
     // we've provided one for you to get started
     this.x = x;
     this.y = y;
-    this.speed = Math.random()*101|0;
+    this.speed = Math.random()*301|0;
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
@@ -16,7 +16,6 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-    // var speed = Enemy.speed;
     this.x += this.speed * dt;
 };
 
@@ -52,7 +51,7 @@ Player.prototype.handleInput = function(keyPressed){
   if(keyPressed == 'down' && 400 < this.y > 100){
     this.y += 50;
   }
-  if(keyPressed == 'left' && this.x > 0){
+  if(keyPressed == 'left' && this.x > -50){
     this.x -= 50;
   }
   if(keyPressed == 'right' && this.x < 400){
@@ -67,13 +66,13 @@ var allEnemies = [];
 
 (function createEnemies(){
   allEnemies.push(new Enemy(100, 100));
-  allEnemies.push(new Enemy(-40, 400));
+  allEnemies.push(new Enemy(-40, 300));
   allEnemies.push(new Enemy(160, 300));
   allEnemies.push(new Enemy(-110, 100));
   allEnemies.push(new Enemy(-40, 200));
   allEnemies.push(new Enemy(20, 300));
   allEnemies.push(new Enemy(360, 200));
-  allEnemies.push(new Enemy(-150, 400));
+  allEnemies.push(new Enemy(-150, 100));
 }());
 
 var player = new Player(200,400);
