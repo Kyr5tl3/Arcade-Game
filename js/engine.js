@@ -162,7 +162,13 @@ var Engine = (function(global) {
      * those sorts of things. It's only called once by the init() method.
      */
     function reset() {
+      //3 lives
+      for(i=1; i<=3; i++){
+      $('ul.lives').append('<li><img class="heart" src="images/Heart.png"></li>')
+    };    
+
       //Reset Scorecard Variables
+
       lives = 3;
       points = 0;
       gemBlueTotal = 0;
