@@ -63,7 +63,7 @@ var Engine = (function(global) {
      * particularly setting the lastTime variable that is required for the
      * game loop.
      */
-    function init() {
+     function init() {
         reset();
         lastTime = Date.now();
         main();
@@ -177,7 +177,6 @@ var Engine = (function(global) {
       $('div.gemBlueAmount').append('<img class="gemImage" src="images/Gem Blue.png"><h3 class="pointsBlue">0</h3>');
       $('div.gemGreenAmount').append('<img class="gemImage" src="images/Gem Green.png"><h3 class="pointsGreen">0</h3>');
       $('div.gemOrangeAmount').append('<img class="gemImage" src="images/Gem Orange.png"><h3 class="pointsOrange">0</h3>');
-      $('div.myHighscore').append('<h2 class="highscore"> Highscore: ' + highscore + '</h2>')
 
       //Reset Scorecard Variables
       points = 0;
@@ -210,3 +209,26 @@ var Engine = (function(global) {
      */
     global.ctx = ctx;
 })(this);
+
+
+//typewriter js for lettering. Obtained from http://jsfiddle.net/kA8G8/7/
+var text = $('.typewriter').text();
+
+var length = text.length;
+var timeOut;
+var character = 0;
+
+
+(function typeWriter() {
+    timeOut = setTimeout(function() {
+        character++;
+        var type = text.substring(0, character);
+        $('.typewriter').text(type);
+        typeWriter();
+
+        if (character == length) {
+            clearTimeout(timeOut);
+        }
+
+    }, 150);
+}());

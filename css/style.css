@@ -126,3 +126,29 @@ li {
   font-weight: lighter;
   margin-left: 20px;
 }
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 10; /* Sit on top */
+    left: 10%;
+    right: 10%;
+    top: 25%;
+    width: 80%; /* Full width */
+    height: 50%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(211,211,211); /* Fallback color */
+    border-width: 5px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.button01{
+  text-align: center;
+  margin: 20px;
+  color: gold;
+}
+
+.typewriter{
+  font-family: Courier;
+}

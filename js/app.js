@@ -4,6 +4,13 @@ var gemBlueTotal = 0;
 var gemGreenTotal = 0;
 var gemOrangeTotal = 0;
 var totalPoints = 0;
+var highscore = 0; //localStorage.getItem("highscore");
+
+//append highscore to Scorecard
+(function addHighscore(){
+$('div.myHighscore').append('<h2 class="highscore"> Highscore: ' + highscore + '</h2>');
+}());
+
 
 // Enemies our player must avoid
 var Enemy = function(x , y) {
@@ -159,13 +166,8 @@ Player.prototype.restart = function(){
   this.y = 400;
 };
 
-//game over
-Player.prototype.gameOver = function(){
-  console.log('GAMEOVER');
-};
-
 //Highscore
-var highscore = 0; //localStorage.getItem("highscore");
+
 // function highscore(){
 //   if(highscore !== null){
 //     if (totalPoints > highscore) {
@@ -177,6 +179,22 @@ var highscore = 0; //localStorage.getItem("highscore");
 //     }
 // }
 
+
+//game over
+$(".button01").click(function(){location.reload();});
+
+Player.prototype.gameOver = function(){
+  $('div.modal').append('<h1 class="typewriter gameover">GAME OVER</h1>');
+  $('.modal').remove('display','none').addAttr('display','block')
+  if(totalPoints > highscore){
+      $('div.modal').append('<h2>New High Score!!!</h2>');
+      $('div.modal').append('<h2>' + highscore + '</h2>');
+  } else {$('div.modal').append('<h2>Your Score</h2>');
+          $('div.modal').append('<h2>'+ totalPoints +'</h2>');
+          $('div.modal').append('<h2>Highest Score</h2>');
+          $('div.modal').append('<h2>' + highscore + '</h2>');}
+  $('div.modal').append('<button class="button01">Play Again?</h1>')
+};
 
 // Instantiate objects.
 var allEnemies = [];
