@@ -164,10 +164,15 @@ var Engine = (function(global) {
     function reset() {
       //3 lives
       for(i=1; i<=5; i++){
-      $('ul.lives').append('<li><img class="heart" src="images/Heart.png"></li>')
+      $('ul.lives').append('<li><img class="heart" src="images/Heart.png"></li>');
     };
       //display score
-      $('div.score').append('<img class="star" src="images/Star.png"><h3 class="points">0</h3>')
+      $('div.score').append('<img class="star" src="images/Star.png"><h3 class="points">0</h3>');
+
+      //add gems
+      $('div.gemBlueAmount').append('<img class="gemImage" src="images/Gem Blue.png"><h3 class="pointsBlue">0</h3>');
+      $('div.gemGreenAmount').append('<img class="gemImage" src="images/Gem Green.png"><h3 class="pointsGreen">0</h3>');
+      $('div.gemOrangeAmount').append('<img class="gemImage" src="images/Gem Orange.png"><h3 class="pointsOrange">0</h3>');
       //Reset Scorecard Variables
       points = 0;
       gemBlueTotal = 0;

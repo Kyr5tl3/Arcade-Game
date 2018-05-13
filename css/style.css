@@ -54,7 +54,7 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    min-height: 70px; 
+    min-height: 70px;
 }
 
 li {
@@ -80,28 +80,45 @@ li {
   width: 40px;
   float: left;
   margin-right: 20px;
-  margin-top: -10px;
+  margin-top: -15px;
 }
 
 .gemBlueAmount{
-  display: block;
-}
-
-.gemBlue{
-  width: 40px;
+  display: inline-block;
+  width: 100%;
+  min-height: 70px;
 }
 
 .gemGreenAmount{
-  display: block;
-}
-
-.gemGreen{
-  width: 40px;
+  display: inline-block;
+  width: 100%;
+  min-height: 70px;
 }
 
 .gemOrangeAmount{
-  display: block;
+  display: inline-block;
+  width: 100%;
+  min-height: 70px;
 }
-.gemOrange{
+
+.gemImage{
   width: 40px;
+  float: left;
+  margin-right: 20px;
+  margin-top: -15px;
+}
+
+.pointsBlue{
+  font-weight: lighter;
+  margin-left: 20px;
+}
+
+.pointsGreen{
+  font-weight: lighter;
+  margin-left: 20px;
+}
+
+.pointsOrange{
+  font-weight: lighter;
+  margin-left: 20px;
 }
