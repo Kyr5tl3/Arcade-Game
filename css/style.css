@@ -1,5 +1,5 @@
 h1, h2, h3, p {
-  font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+  font-family: Trebuchet MS;
   color: #C32148;
 }
 
@@ -74,6 +74,10 @@ li {
 .points{
   font-weight: lighter;
   margin-left: 20px;
+}
+
+.highscore{
+  font-weight: bold;
 }
 
 .star{

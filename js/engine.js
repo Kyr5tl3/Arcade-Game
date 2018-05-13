@@ -177,6 +177,7 @@ var Engine = (function(global) {
       $('div.gemBlueAmount').append('<img class="gemImage" src="images/Gem Blue.png"><h3 class="pointsBlue">0</h3>');
       $('div.gemGreenAmount').append('<img class="gemImage" src="images/Gem Green.png"><h3 class="pointsGreen">0</h3>');
       $('div.gemOrangeAmount').append('<img class="gemImage" src="images/Gem Orange.png"><h3 class="pointsOrange">0</h3>');
+      $('div.myHighscore').append('<h2 class="highscore"> Highscore: ' + highscore + '</h2>')
 
       //Reset Scorecard Variables
       points = 0;

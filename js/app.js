@@ -3,7 +3,7 @@ var points = 0;
 var gemBlueTotal = 0;
 var gemGreenTotal = 0;
 var gemOrangeTotal = 0;
-var totalPoints = points + gemBlueTotal + gemGreenTotal + gemOrangeTotal;
+var totalPoints = 0;
 
 // Enemies our player must avoid
 var Enemy = function(x , y) {
@@ -150,6 +150,7 @@ Gem.prototype.points = function(){
 
 //adding of point
 Player.prototype.points = function(){
+  totalPoints = points + gemBlueTotal + gemGreenTotal + gemOrangeTotal;
   $('h3.points').replaceWith('<h3 class="points">' + totalPoints + '</h3>')
 }
 //restart - player to return to Point of Origin
@@ -158,9 +159,24 @@ Player.prototype.restart = function(){
   this.y = 400;
 };
 
+//game over
 Player.prototype.gameOver = function(){
   console.log('GAMEOVER');
 };
+
+//Highscore
+var highscore = 0; //localStorage.getItem("highscore");
+// function highscore(){
+//   if(highscore !== null){
+//     if (totalPoints > highscore) {
+//         localStorage.setItem("highscore", totalPoints);
+//     }
+// }
+//     else{
+//       localStorage.setItem("highscore", totalPoints);
+//     }
+// }
+
 
 // Instantiate objects.
 var allEnemies = [];
