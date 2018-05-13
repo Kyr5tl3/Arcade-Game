@@ -105,16 +105,9 @@ var allEnemies = [];
 
 (function createEnemies(){
   allEnemies.push(new Enemy(100, 100));
-  // allEnemies.push(new Enemy(-40, 300));
-  // allEnemies.push(new Enemy(160, 300));
-  // allEnemies.push(new Enemy(-110, 100));
-  // allEnemies.push(new Enemy(-40, 200));
-  // allEnemies.push(new Enemy(20, 300));
-  // allEnemies.push(new Enemy(360, 200));
-  // allEnemies.push(new Enemy(-150, 100));
 }());
 
-//new Enemy to be created 
+//new Enemy to be created
 function newEnemy(){
   var xEnemy= Math.abs((Math.floor(Math.random()*(40)-6))*10);
   var yEnemy= Math.abs((Math.floor(Math.random()*(3)+1))*100);
