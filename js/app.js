@@ -12,7 +12,7 @@ var Enemy = function(x , y) {
     this.sprite = 'images/enemy-bug.png';
 };
 
-// Update the enemy's position, required method for game
+// Update the enemy's position
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
@@ -24,20 +24,19 @@ Enemy.prototype.update = function(dt) {
     else{this.x = -50};
 };
 
-// Draw the enemy on the screen, required method for game
+// Draw the enemy on the screen
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-// Now write your own player class
-// This class requires an update(), render() and
-// a handleInput() method.
+// Player class
 var Player = function (x , y){
   this.x = x;
   this.y = y;
   this.sprite = 'images/char-cat-girl.png';
 };
 
+//Player update function
 Player.prototype.update = function(dt) {
   var thePlayer = this;
   if(this.y == 0){
@@ -59,10 +58,12 @@ Player.prototype.update = function(dt) {
     }});
 };
 
+//Player render function - renders character on screen
 Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
+//Player handling function - using keys to navingate the players
 Player.prototype.handleInput = function(keyPressed){
 
   if(keyPressed == 'up' && 100 > this.y <= 400){
@@ -79,8 +80,7 @@ Player.prototype.handleInput = function(keyPressed){
   }
 };
 
-//adding of points
-
+//adding of point
 Player.prototype.points = function(){
   $('h3.points').replaceWith('<h3 class="points">' + points + '</h3>')
 }
@@ -94,9 +94,7 @@ Player.prototype.gameOver = function(){
   console.log('GAMEOVER');
 };
 
-// Now instantiate your objects.
-// Place all enemy objects in an array called allEnemies
-// Place the player object in a variable called player
+// Instantiate objects.
 var allEnemies = [];
 
 (function createEnemies(){
