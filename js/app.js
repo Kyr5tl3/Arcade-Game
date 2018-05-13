@@ -48,6 +48,7 @@ Player.prototype.update = function(dt) {
     points += 100;
     this.points();
     this.restart();
+    newEnemy();
   };
 
   allEnemies.forEach(function(enemy){
@@ -112,6 +113,15 @@ var allEnemies = [];
   // allEnemies.push(new Enemy(360, 200));
   // allEnemies.push(new Enemy(-150, 100));
 }());
+
+//new Enemy to be created 
+function newEnemy(){
+  var xEnemy= Math.abs((Math.floor(Math.random()*(40)-6))*10);
+  var yEnemy= Math.abs((Math.floor(Math.random()*(3)+1))*100);
+  if(allEnemies.length < 12){
+  allEnemies.push(new Enemy(xEnemy, yEnemy));
+  }
+};
 
 var player = new Player(200,400);
 
