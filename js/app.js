@@ -3,6 +3,7 @@ var points = 0;
 var gemBlueTotal = 0;
 var gemGreenTotal = 0;
 var gemOrangeTotal = 0;
+var totalPoints = points + gemBlueTotal + gemGreenTotal + gemOrangeTotal;
 
 // Enemies our player must avoid
 var Enemy = function(x , y) {
@@ -39,12 +40,12 @@ var Player = function (x , y){
 //Player update function
 Player.prototype.update = function(dt) {
   var thePlayer = this;
-  if(this.y == 0){
+  if(this.y == -50){
     points += 100;
     this.points();
     this.restart();
-    newEnemy();
-    newGem();
+    // newEnemy();
+    createGems();
   };
 
   allEnemies.forEach(function(enemy){
@@ -57,6 +58,17 @@ Player.prototype.update = function(dt) {
         }
         else{player.gameOver();}
     }});
+
+    allGems.forEach(function(gem){
+      var xPosition = Math.abs(player.x - gem.x + 25);
+      var yPosition = Math.abs(player.y - gem.y + 75);
+      if(xPosition<=5 && yPosition<=5){
+        var thisGem = allGems.indexOf(gem);
+        allGems.splice(thisGem,1);
+        gem.points();
+        player.points();
+        }
+      });
 };
 
 //Player render function - renders character on screen
@@ -97,27 +109,48 @@ Gem.prototype.render = function() {
 var allGems = [];
 
 function newGem(){
-  var calcX = Math.abs((Math.floor(Math.random()*(6)+1))*50);
-  var calcY = Math.abs((Math.floor(Math.random()*(7)+1))*50);
+  var calcX = Math.abs((Math.floor(Math.random()*(9)+1))*50);
+  var calcY = Math.abs((Math.floor(Math.random()*(9)+1))*50);
   var xGem = 0;
-  var ygem = 0;
-    if(calcX < 600){xGem = Math.floor(calcX-25);
-    };
-    if(calcY > 100){yGem = Math.floor(calcY-25);
-    };
+  var yGem = 0;
+    if(calcX < 505){xGem = Math.floor(calcX-25);
+    } else{xGem = calcX};
+    if(calcY < 100){yGem = calcY + 75;
+    } else{yGem = Math.floor(calcY-25)};
   var gemArray = ['images/Gem Blue.png', 'images/Gem Green.png', 'images/Gem Orange.png'];
-  var selectGem = Math.floor(Math.random()*(2));
+  var selectGem = Math.floor(Math.random()*(3));
   var createGem = gemArray[selectGem];
-
-  if(allGems.length < 3){
   var imgGem = createGem;
   allGems.push(new Gem(xGem, yGem, imgGem));
+};
+
+function createGems(){
+  if(allGems.length < 3){
+  var len = allGems.length;
+ for(i=3; len<i; i--){
+   newGem();
+ }
+}};
+
+//Gem points
+Gem.prototype.points = function(){
+  if(this.sprite == 'images/Gem Blue.png'){
+    gemBlueTotal += 25;
+    $('h3.pointsBlue').replaceWith('<h3 class="pointsBlue">' + gemBlueTotal + '</h3>');
+  }
+  if(this.sprite == 'images/Gem Green.png'){
+    gemGreenTotal += 50;
+    $('h3.pointsGreen').replaceWith('<h3 class="pointsGreen">' + gemGreenTotal + '</h3>');
+  }
+  if(this.sprite == 'images/Gem Orange.png'){
+    $('h3.pointsOrange').replaceWith('<h3 class="pointsOrange">' + gemOrangeTotal + '</h3>');
+    gemOrangeTotal += 75;
   }
 };
 
 //adding of point
 Player.prototype.points = function(){
-  $('h3.points').replaceWith('<h3 class="points">' + points + '</h3>')
+  $('h3.points').replaceWith('<h3 class="points">' + totalPoints + '</h3>')
 }
 //restart - player to return to Point of Origin
 Player.prototype.restart = function(){
