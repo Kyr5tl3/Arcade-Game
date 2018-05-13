@@ -44,6 +44,7 @@ Player.prototype.update = function(dt) {
     this.points();
     this.restart();
     newEnemy();
+    newGem();
   };
 
   allEnemies.forEach(function(enemy){
@@ -77,6 +78,40 @@ Player.prototype.handleInput = function(keyPressed){
   }
   if(keyPressed == 'right' && this.x < 400){
     this.x += 50;
+  }
+};
+
+//Gems
+var Gem = function(x , y, img) {
+    this.x = x;
+    this.y = y;
+    this.sprite = img;
+};
+
+// Draw gem on the screen
+Gem.prototype.render = function() {
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y, 50, 80);
+};
+
+//new Gem
+var allGems = [];
+
+function newGem(){
+  var calcX = Math.abs((Math.floor(Math.random()*(6)+1))*50);
+  var calcY = Math.abs((Math.floor(Math.random()*(7)+1))*50);
+  var xGem = 0;
+  var ygem = 0;
+    if(calcX < 600){xGem = Math.floor(calcX-25);
+    };
+    if(calcY > 100){yGem = Math.floor(calcY-25);
+    };
+  var gemArray = ['images/Gem Blue.png', 'images/Gem Green.png', 'images/Gem Orange.png'];
+  var selectGem = Math.floor(Math.random()*(2));
+  var createGem = gemArray[selectGem];
+
+  if(allGems.length < 3){
+  var imgGem = createGem;
+  allGems.push(new Gem(xGem, yGem, imgGem));
   }
 };
 
