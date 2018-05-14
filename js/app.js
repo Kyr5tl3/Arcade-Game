@@ -29,7 +29,7 @@ Enemy.prototype.update = function(dt) {
     if(this.x < 505){
       this.x += this.speed * dt;
     }
-    else{this.x = -50};
+  else{this.x = -50;}
 };
 
 // Draw the enemy on the screen
@@ -53,17 +53,18 @@ Player.prototype.update = function(dt) {
     this.restart();
     // newEnemy();
     createGems();
-  };
+  }
 
   allEnemies.forEach(function(enemy){
     var xPosition = Math.abs(player.x - enemy.x);
     var yPosition = Math.abs(player.y - enemy.y);
     if(xPosition<=50 && yPosition<=25){
         thePlayer.restart();
-        if($('ul.lives li').length > 0){
+        if($('ul.lives li').length > 1){
           $('ul.lives li:last-child').remove();
         }
-        else{player.gameOver();}
+        else{$('ul.lives li:last-child').remove();
+        player.gameOver();}
     }});
 
     allGems.forEach(function(gem){
@@ -121,15 +122,15 @@ function newGem(){
   var xGem = 0;
   var yGem = 0;
     if(calcX < 505){xGem = Math.floor(calcX-25);
-    } else{xGem = calcX};
+    } else{xGem = calcX;}
     if(calcY < 100){yGem = calcY + 75;
-    } else{yGem = Math.floor(calcY-25)};
+    } else{yGem = Math.floor(calcY-25);}
   var gemArray = ['images/Gem Blue.png', 'images/Gem Green.png', 'images/Gem Orange.png'];
   var selectGem = Math.floor(Math.random()*(3));
   var createGem = gemArray[selectGem];
   var imgGem = createGem;
   allGems.push(new Gem(xGem, yGem, imgGem));
-};
+}
 
 function createGems(){
   if(allGems.length < 3){
@@ -137,7 +138,7 @@ function createGems(){
  for(i=3; len<i; i--){
    newGem();
  }
-}};
+}}
 
 //Gem points
 Gem.prototype.points = function(){
@@ -158,8 +159,8 @@ Gem.prototype.points = function(){
 //adding of point
 Player.prototype.points = function(){
   totalPoints = points + gemBlueTotal + gemGreenTotal + gemOrangeTotal;
-  $('h3.points').replaceWith('<h3 class="points">' + totalPoints + '</h3>')
-}
+  $('h3.points').replaceWith('<h3 class="points">' + totalPoints + '</h3>');
+};
 //restart - player to return to Point of Origin
 Player.prototype.restart = function(){
   this.x = 200;
@@ -179,28 +180,12 @@ Player.prototype.restart = function(){
 //     }
 // }
 
-
-//game over
-$(".button01").click(function(){location.reload();});
-
-Player.prototype.gameOver = function(){
-  $('div.modal').append('<h1 class="typewriter gameover">GAME OVER</h1>');
-  $('.modal').remove('display','none').addAttr('display','block')
-  if(totalPoints > highscore){
-      $('div.modal').append('<h2>New High Score!!!</h2>');
-      $('div.modal').append('<h2>' + highscore + '</h2>');
-  } else {$('div.modal').append('<h2>Your Score</h2>');
-          $('div.modal').append('<h2>'+ totalPoints +'</h2>');
-          $('div.modal').append('<h2>Highest Score</h2>');
-          $('div.modal').append('<h2>' + highscore + '</h2>');}
-  $('div.modal').append('<button class="button01">Play Again?</h1>')
-};
-
 // Instantiate objects.
 var allEnemies = [];
 
-(function createEnemies(){
+var enemyCreation = (function createEnemies(){
   allEnemies.push(new Enemy(100, 100));
+  return createEnemies;
 }());
 
 //new Enemy to be created
@@ -210,9 +195,52 @@ function newEnemy(){
   if(allEnemies.length < 12){
   allEnemies.push(new Enemy(xEnemy, yEnemy));
   }
-};
+}
 
 var player = new Player(200,400);
+
+
+//create lives
+//5 lives
+var createLife = function(){for(i=1; i<=5; i++){
+$('ul.lives').append('<li><img class="heart" src="images/Heart.png"></li>');
+}};
+//reset the game
+function gameReset(){
+  points = 0;
+  gemBlueTotal = 0;
+  gemGreenTotal = 0;
+  gemOrangeTotal = 0;
+  totalPoints = 0;
+  allGems = [];
+  allEnemies = [];
+  createLife();
+  enemyCreation();
+  createGems();
+  $('div.modal').hide();
+}
+
+//game over
+
+function blink(){
+  $('.blink').fadeOut(500).fadeIn(500);
+}
+
+setInterval(blink, 1000);
+
+Player.prototype.gameOver = function(){
+  $('div.modal').show();
+  $('div.modal-content').append('<h1 class="blink">GAME OVER</h1>');
+  if(totalPoints > highscore){
+      $('div.modal-content').append('<h2>New High Score!!!</h2>');
+      $('div.modal-content').append('<h2>' + highscore + '</h2>');
+  } else {$('div.modal-content').append('<h2>Your Score</h2>');
+          $('div.modal-content').append('<h2>'+ totalPoints +'</h2>');
+          $('div.modal-content').append('<h2>Highest Score</h2>');
+          $('div.modal-content').append('<h2>' + highscore + '</h2>');}
+  $('div.modal-content').append('<button class="button01">Play Again?</h1>');
+  $('.button01').click(gameReset);
+};
 
 
 // This listens for key presses and sends the keys to your

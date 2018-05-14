@@ -23,13 +23,13 @@ p{font-size: 1em; font-style: italic;}
 
 .leftcontainer{
   padding: 20px;
-  width: 30%;
+  width: 35%;
   display: inline-block;
 }
 
 .introduction{
-  width: 100%;
-  padding: 0 20px;
+  width: 80%;
+  padding: 0 10px;
 }
 
 .playingField{
@@ -129,26 +129,45 @@ li {
 
 .modal {
     display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
+    position: absolute; /* Stay in place */
     z-index: 10; /* Sit on top */
-    left: 10%;
-    right: 10%;
-    top: 25%;
-    width: 80%; /* Full width */
-    height: 50%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(211,211,211); /* Fallback color */
-    border-width: 5px;
-    border-radius: 5px;
-    text-align: center;
+    left: 0;
+    right: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgb(0,0,0);/* Fallback color */
+    background-color: rgb(195,33,72,0.7); /* Fallback color */
+}
+
+.modal-content{
+  position: fixed; /* Stay in place */
+  z-index: 20; /* Sit on top */
+  left: 30%;
+  right: 30%;
+  top: 25%;
+  width: 40%; /* Full width */
+  height: auto;
+  border-width: 5px;
+  border-radius: 5px;
+  vertical-align: middle;
+  text-align: center;
+  background-color: #ffd700;
+  padding-top: 20px;
 }
 
 .button01{
   text-align: center;
   margin: 20px;
-  color: gold;
+  padding: 20px;
+  font-size: 1.2em;
+  font-weight: bold;
+  background-color: #C32148;
+  color: #ffd700;
 }
 
-.typewriter{
+.blink h1{
   font-family: Courier;
+  font-size: 40px;
+  font-weight: bolder;
 }

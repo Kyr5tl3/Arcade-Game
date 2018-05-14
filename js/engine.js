@@ -166,7 +166,7 @@ var Engine = (function(global) {
      * those sorts of things. It's only called once by the init() method.
      */
     function reset() {
-      //3 lives
+      //5 lives
       for(i=1; i<=5; i++){
       $('ul.lives').append('<li><img class="heart" src="images/Heart.png"></li>');
     };
@@ -209,26 +209,3 @@ var Engine = (function(global) {
      */
     global.ctx = ctx;
 })(this);
-
-
-//typewriter js for lettering. Obtained from http://jsfiddle.net/kA8G8/7/
-var text = $('.typewriter').text();
-
-var length = text.length;
-var timeOut;
-var character = 0;
-
-
-(function typeWriter() {
-    timeOut = setTimeout(function() {
-        character++;
-        var type = text.substring(0, character);
-        $('.typewriter').text(type);
-        typeWriter();
-
-        if (character == length) {
-            clearTimeout(timeOut);
-        }
-
-    }, 150);
-}());
