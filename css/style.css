@@ -23,7 +23,7 @@ p{font-size: 1em; font-style: italic;}
 
 .leftcontainer{
   padding: 20px;
-  width: 35%;
+  width: 40%;
   display: inline-block;
 }
 
@@ -34,7 +34,7 @@ p{font-size: 1em; font-style: italic;}
 
 .playingField{
   text-align: center;
-  width: 65%;
+  width: 60%;
   display: block;
   padding: 20px;
 }

@@ -173,16 +173,19 @@ var Engine = (function(global) {
       //display score
       $('div.score').append('<img class="star" src="images/Star.png"><h3 class="points">0</h3>');
 
-      //add gems
+      //add gems & highscore
       $('div.gemBlueAmount').append('<img class="gemImage" src="images/Gem Blue.png"><h3 class="pointsBlue">0</h3>');
       $('div.gemGreenAmount').append('<img class="gemImage" src="images/Gem Green.png"><h3 class="pointsGreen">0</h3>');
       $('div.gemOrangeAmount').append('<img class="gemImage" src="images/Gem Orange.png"><h3 class="pointsOrange">0</h3>');
+      $('div.myHighscore').append('<h2 class="highscore"> Highscore: ' + highscore + '</h2>');
 
       //Reset Scorecard Variables
       points = 0;
       gemBlueTotal = 0;
       gemGreenTotal = 0;
       gemOrangeTotal = 0;
+
+      createGems();
     }
 
     /* Go ahead and load all of the images we know we're going to need to
