@@ -188,6 +188,7 @@ $('ul.lives').append('<li><img class="heart" src="images/Heart.png"></li>');
 }};
 //reset the game
 function gameReset(){
+  $('div.modal-content').empty();
   $('div.modal').hide();
   points = 0;
   gemBlueTotal = 0;
@@ -204,7 +205,7 @@ function gameReset(){
   $('.pointsOrange').text('0');
   $('.points').text('0');
   $('.points').text('0');
-  $('.highscore').text(highscore);
+  $('.highscore').text("Highscore:" + highscore);
 }
 
 //game over
