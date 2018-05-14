@@ -3,151 +3,178 @@ h1, h2, h3, p {
   color: #C32148;
 }
 
-h1{font-size: 2em;}
-h2{font-size: 1.5em;}
-h3{font-size: 1.2em;}
-p{font-size: 1em; font-style: italic;}
+h1 {
+  font-size: 2em;
+}
 
-.container{
+h2 {
+  font-size: 1.5em;
+}
+
+h3 {
+  font-size: 1.2em;
+}
+
+p {
+  font-size: 1em;
+  font-style: italic;
+}
+
+.container {
   padding: 20px;
   display: flex;
   flex-wrap: nowrap;
   border: 5px #C32148;
   border-radius: 10px;
-  background: #C32148; /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(top, #DE3163, #DE5D83, #FFB7C5, #FFD1DC); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(bottom, #DE3163, #DE5D83, #FFB7C5, #FFD1DC); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(bottom, #DE3163, #DE5D83, #FFB7C5, #FFD1DC); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(to top, #DE3163	, #DE5D83, #FFB7C5, #FFD1DC); /* Standard syntax (must be last) */
+  background: #C32148;
+  /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(top, #DE3163, #DE5D83, #FFB7C5, #FFD1DC);
+  /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom, #DE3163, #DE5D83, #FFB7C5, #FFD1DC);
+  /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom, #DE3163, #DE5D83, #FFB7C5, #FFD1DC);
+  /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to top, #DE3163, #DE5D83, #FFB7C5, #FFD1DC);
+  /* Standard syntax (must be last) */
 }
 
-.leftcontainer{
+.leftcontainer {
   padding: 20px;
   width: 40%;
   display: inline-block;
 }
 
-.introduction{
+.introduction {
   width: 80%;
   padding: 0 10px;
 }
 
-.playingField{
+.playingField {
   text-align: center;
   width: 60%;
   display: block;
   padding: 20px;
 }
 
-.scorecard{
+.scorecard {
   display: inline-block;
   width: 80%;
   padding: 10px;
 }
 
-.lives{
+.lives {
   display: block;
 }
 
 ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    min-height: 70px;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  min-height: 70px;
 }
 
 li {
-    float: left;
+  float: left;
 }
 
-.heart{
+.heart {
   width: 40px;
   margin: 0px 5px;
 }
 
-.score{
+.score {
   display: inline-block;
   width: 100%;
 }
 
-.points{
+.points {
   font-weight: lighter;
   margin-left: 20px;
 }
 
-.highscore{
+.highscore {
   font-weight: bold;
   color: gold;
 }
 
-.star{
+.star {
   width: 40px;
   float: left;
   margin-right: 20px;
   margin-top: -15px;
 }
 
-.gemBlueAmount{
+.gemBlueAmount {
   display: inline-block;
   width: 100%;
   min-height: 70px;
 }
 
-.gemGreenAmount{
+.gemGreenAmount {
   display: inline-block;
   width: 100%;
   min-height: 70px;
 }
 
-.gemOrangeAmount{
+.gemOrangeAmount {
   display: inline-block;
   width: 100%;
   min-height: 70px;
 }
 
-.gemImage{
+.gemImage {
   width: 40px;
   float: left;
   margin-right: 20px;
   margin-top: -15px;
 }
 
-.pointsBlue{
+.pointsBlue {
   font-weight: lighter;
   margin-left: 20px;
 }
 
-.pointsGreen{
+.pointsGreen {
   font-weight: lighter;
   margin-left: 20px;
 }
 
-.pointsOrange{
+.pointsOrange {
   font-weight: lighter;
   margin-left: 20px;
 }
 
 .modal {
-    display: none; /* Hidden by default */
-    position: absolute; /* Stay in place */
-    z-index: 10; /* Sit on top */
-    left: 0;
-    right: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    background-color: rgb(0,0,0);/* Fallback color */
-    background-color: rgb(195,33,72,0.7); /* Fallback color */
+  display: none;
+  /* Hidden by default */
+  position: absolute;
+  /* Stay in place */
+  z-index: 10;
+  /* Sit on top */
+  left: 0;
+  right: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgb(195, 33, 72, 0.7);
+  /* Fallback color */
 }
 
-.modal-content{
-  position: fixed; /* Stay in place */
-  z-index: 20; /* Sit on top */
+.modal-content {
+  position: fixed;
+  /* Stay in place */
+  z-index: 20;
+  /* Sit on top */
   left: 30%;
   right: 30%;
   top: 25%;
-  width: 40%; /* Full width */
+  width: 40%;
+  /* Full width */
   height: auto;
   border-width: 5px;
   border-radius: 5px;
@@ -157,7 +184,7 @@ li {
   padding-top: 20px;
 }
 
-.button01{
+.button01 {
   text-align: center;
   margin: 20px;
   padding: 20px;
@@ -167,7 +194,7 @@ li {
   color: #ffd700;
 }
 
-.blink h1{
+.blink h1 {
   font-family: Courier;
   font-size: 40px;
   font-weight: bolder;
